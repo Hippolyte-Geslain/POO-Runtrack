@@ -1,0 +1,22 @@
+class Personnage():
+    def __init__(self, x, y):#constructor
+        self.x = x
+        self.y = y
+    def gauche(self): #méthodes de déplacement selon axe orthonormé
+        self.x -=1
+    def droite(self):
+        self.x +=1
+    def haut(self):
+        self.y +=1
+    def bas(self):
+        self.y -=1
+    def position(self): #affichage des coordonnées
+        position = (self.x,self.y)
+        print(position)
+    
+a = Personnage(0,0) #appel de la classe, de la position de départ, des mouvement puis de l'affichage de la positon
+a.position()
+a.bas()
+a.bas()
+a.gauche()
+a.position()

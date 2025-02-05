@@ -30,11 +30,27 @@ class CompteBancaire():
                 return self.afficher_solde()
         except ValueError:
             print("Le montant du retrait doit être un entier")
-        
-            
+    def virement(self,destinataire, montant):
+        try:
+            int(montant)
+            if montant>self.__solde:
+                if self.__decouvert:
+                    self.__solde = self.__solde - montant
+                    destinataire.self__solde = destinataire.self__solde + montant
+                    return self.afficher_solde()
+                else:
+                    return("Vous n'avez pas les fonds nécessaires")
+            else:
+                self.__solde = self.__solde - montant
+                return self.afficher_solde()
+        except ValueError:
+            print("Le montant du virement doit être un entier")
 
 axel = CompteBancaire(1415,'Axel','Achart',-10,False)
+hippo = CompteBancaire(1,'hippolyte','geslain',100,True)
 print(axel.afficher())
 print(axel.afficher_solde())
 print(axel.versement(12))
 print(axel.retrait(10))
+print(hippo.virement(axel,10))
+print(axel.afficher_solde())

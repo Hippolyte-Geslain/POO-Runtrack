@@ -20,6 +20,7 @@ class Jeu():
                 self.joueur1.tirer_carte(self.paquet.distribuer_carte())
             if choix == 'N' or 'n':
                 print('Très bien Monsieur')
+                avarice = False
     def end_game(self):
         print('GG')
     def run(self):
@@ -29,6 +30,7 @@ class Jeu():
             self.joueur1.tirer_carte(self.paquet.distribuer_carte())
             self.afficher_main()
             self.choix()
+            while 
             #rajouter plus de tours et de fonctionnalités
             self.running = False
 game = Jeu()

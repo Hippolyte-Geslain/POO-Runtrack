@@ -40,7 +40,23 @@ thesee.replace_material('mat2','plastique')
 
 class RacingShip(Ship):
     def __init__(self):
-        super().__init__()
+        super().__init__('thesee')
         self.__max_speed = 12
     def display_speed(self):
-        return self.__max_speed
+        print(f"La vitesse maximum du bateau est de : {self.__max_speed} noeuds")
+
+thesee = RacingShip()
+
+while True:
+    print('Bienvenue sur le bateau de Thésée')
+    choice = input("Que voulez vous faire?\nVous pouvez appuyez sur \n1 pour afficher l'état du bateau\n2 Pour remplacer une pièce du bateau\n3 Pour modifier des matériaux\n")
+    if choice == '1':
+        thesee.display_state()
+        thesee.display_speed()
+    if choice == '2':
+        piece = input('Quel pièce voulez-vous remplacer ?\n:')
+        thesee.replace_part(piece,piece.join('1'))
+    if choice == '3':
+        piece = input('Quel pièce voulez-vous modifier ?\n:')
+        materiau = input('Quel sera le nouveau matériau ?\n:')
+        thesee.replace_material(piece,materiau)
